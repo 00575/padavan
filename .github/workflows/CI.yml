@@ -5,8 +5,8 @@ on:
   push:
   pull_request:
   workflow_dispatch:
-  release:
-    types: [published]
+  schedule:
+    - cron: '0 21 */5 * *'
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
@@ -21,14 +21,18 @@ jobs:
     strategy:
       matrix:
         include:
-          - build_variant: "mt7620"
-            targets: "PSG1208 PSG1218 NEWIFI-MINI MI-MINI MI-3 OYE-001 5K-W20"
-          - build_variant: "mt7628"
-            targets: "HC5861B MI-NANO MZ-R13 MZ-R13P 360P2 HC5761A HC5661A"
-          - build_variant: "mt7621"
-            targets: "K2P_nano-5.0 K2P-5.0 DIR-878-5.0 RM2100"
-          - build_variant: "mt7621-usb"
-            targets: "XY-C1 JCG-836PRO-5.0 JCG-AC860M-5.0 JCG-Y2-5.0 DIR-882-5.0 A3004NS MSG1500 WR1200JS MI-R3G NEWIFI3 B70"
+          - build_variant: "Auto-1"
+            targets: "360P2 5K-W20 A3004NS B70 DIR-878 DIR-878-5.0 DIR-882 DIR-882-5.0 E8820V2 GHL"
+          - build_variant: "Auto-2"
+            targets: "HC5661A HC5761A HC5861B JCG-836PRO JCG-836PRO-5.0 JCG-AC836M JCG-AC856M-5.0 JCG-AC860M-5.0 JCG-AC860M"
+          - build_variant: "Auto-3"
+            targets: "JCG-Y2-5.0 JCG-Y2 JDC-1-5.0 JDC-1 K2P-5.0 K2P-USB-5.0 K2P-USB-512-5.0 K2P-USB-512 K2P-USB K2P"
+          - build_variant: "Auto-4"
+            targets: "K2P_nano-5.0 K2P_nano MI-3 MI-MINI MI-NANO MI-R3G MI-R3P MR2600 MR2600-5.0 MSG1500-7615"
+          - build_variant: "Auto-5" 
+            targets: "MSG1500 MZ-R13 MZ-R13P MZ-R18 NEWIFI-D1 NEWIFI-MINI NEWIFI3 OYE-001 PSG1208 PSG1218"
+          - build_variant: "Auto-6" 
+            targets: "PSG1218_nano PSG712 R2100 RE6500 RM2100 RT-AC1200GU WDR7300 WR1200JS XY-C1 YK-L1"
     steps:
       - uses: actions/checkout@v2
       - name: Prepare environment
@@ -62,12 +66,11 @@ jobs:
         with:
           name: ${{ env.image_name }}
           path: ${{ env.images_dir }}/*.7z
-      - name: Upload images to Releases
-        if: ${{ github.event_name == 'release' && success() }}
-        uses: svenstaro/upload-release-action@2.2.0
+
+      - name: Upload binaries to release
+        uses: svenstaro/upload-release-action@v1-release
         with:
-          repo_token: ${{ secrets.GITHUB_TOKEN }}
-          file: ${{ env.images_dir }}/*.trx
-          tag: ${{ github.ref }}
+          repo_token: ${{ secrets.workflow_token }}
+          file: /opt/images/*.trx
+          tag: Auto-$(date +"%Y.%m.%d-%H%M")
           overwrite: true
-          file_glob: true
