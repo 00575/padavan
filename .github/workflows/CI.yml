@@ -28,7 +28,7 @@ jobs:
           - build_variant: "Auto-4"
             targets: "K2P_nano-5.0 K2P_nano MI-3 MI-MINI MI-NANO MI-R3G MI-R3P MR2600 MR2600-5.0 MSG1500-7615"
           - build_variant: "Auto-5" 
-            targets: "MSG1500 MZ-R13 MZ-R13P MZ-R18 NEWIFI-D1 NEWIFI-MINI NEWIFI3 OYE-001 PSG1208 PSG1218"
+            targets: "MSG1500 MZ-R13 MZ-R13P NEWIFI-D1 NEWIFI-MINI NEWIFI3 OYE-001 PSG1208 PSG1218"
           - build_variant: "Auto-6" 
             targets: "PSG1218_nano R2100 RM2100 RT-AC1200GU WDR7300 WR1200JS XY-C1 YK-L1"
     steps:
