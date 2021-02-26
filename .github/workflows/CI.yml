@@ -22,7 +22,7 @@ jobs:
           - build_variant: "Auto-1"
             targets: "360P2 5K-W20 A3004NS B70 DIR-878 DIR-878-5.0 DIR-882 DIR-882-5.0 E8820V2 GHL"
           - build_variant: "Auto-2"
-            targets: "HC5761A HC5861B JCG-836PRO JCG-836PRO-5.0 JCG-AC856M-5.0 JCG-AC860M-5.0 JCG-AC860M"
+            targets: "HC5761A HC5861B JCG-836PRO JCG-836PRO-5.0 JCG-AC860M-5.0 JCG-AC860M"
           - build_variant: "Auto-3"
             targets: "JCG-Y2-5.0 JCG-Y2 K2P-5.0 K2P-USB-5.0 K2P-USB K2P"
           - build_variant: "Auto-4"
