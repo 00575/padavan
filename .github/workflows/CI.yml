@@ -24,7 +24,7 @@ jobs:
           - build_variant: "Auto-2"
             targets: "HC5761A HC5861B JCG-836PRO JCG-836PRO-5.0 JCG-AC856M-5.0 JCG-AC860M-5.0 JCG-AC860M"
           - build_variant: "Auto-3"
-            targets: "JCG-Y2-5.0 JCG-Y2 K2P-5.0 K2P-USB-5.0 K2P-USB-512 K2P-USB K2P"
+            targets: "JCG-Y2-5.0 JCG-Y2 K2P-5.0 K2P-USB-5.0 K2P-USB K2P"
           - build_variant: "Auto-4"
             targets: "K2P_nano-5.0 K2P_nano MI-3 MI-MINI MI-NANO MI-R3G MI-R3P MR2600 MR2600-5.0 MSG1500-7615"
           - build_variant: "Auto-5" 
