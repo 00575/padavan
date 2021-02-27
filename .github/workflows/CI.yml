@@ -26,7 +26,7 @@ jobs:
           - build_variant: "Auto-3"
             targets: "JCG-Y2-5.0 JCG-Y2 K2P-5.0 K2P-USB-5.0 K2P-USB K2P"
           - build_variant: "Auto-4"
-            targets: "K2P_nano-5.0 K2P_nano MI-3 MI-MINI MI-NANO MI-R3G MI-R3P MR2600 MR2600-5.0 MSG1500-7615"
+            targets: "K2P_nano-5.0 K2P_nano MI-3 MI-MINI MI-NANO MI-R3G MR2600 MR2600-5.0 MSG1500-7615"
           - build_variant: "Auto-5" 
             targets: "MSG1500 MZ-R13 MZ-R13P NEWIFI-MINI NEWIFI3 OYE-001 PSG1208 PSG1218"
           - build_variant: "Auto-6" 
