@@ -30,7 +30,7 @@ jobs:
           - build_variant: "Auto-5" 
             targets: "MSG1500 MZ-R13 MZ-R13P NEWIFI-MINI NEWIFI3 OYE-001 PSG1208 PSG1218"
           - build_variant: "Auto-6" 
-            targets: "PSG1218_nano R2100 RM2100 RT-AC1200GU WDR7300 WR1200JS XY-C1 YK-L1"
+            targets: "PSG1218_nano R2100 RM2100 RT-AC1200GU WDR7300 WR1200JS XY-C1"
     steps:
       - uses: actions/checkout@v2
       - name: Prepare environment
