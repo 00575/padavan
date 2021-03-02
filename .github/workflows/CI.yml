@@ -67,10 +67,9 @@ jobs:
           path: ${{ env.images_dir }}/*.7z
           
       - name: Upload images to Releases
-        if: ${{ github.event_name == 'release' && success() }}
         uses: svenstaro/upload-release-action@2.2.0
         with:
-          repo_token: ${{ secrets.release_token }}
+          repo_token: ${{ secrets.RELEASE_TOKEN }}
           file: ${{ env.images_dir }}/*.trx
           tag: ${{ github.ref }}
           overwrite: true
