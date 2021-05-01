@@ -19,15 +19,17 @@ jobs:
       matrix:
         include:
           - build_variant: "A"
-            targets: "MSG1500-7615 MZ-R18"
+            targets: "MI-3C MI-R3P"
           - build_variant: "B"
-            targets: "NEWIFI-D1 PSG712"
+            targets: "MI-R3P-breed MI-R4A"
           - build_variant: "C"
-            targets: "RE6500 YK-L1"
+            targets: "NETGEAR-BZV NETGEAR-CHJ"
           - build_variant: "D"
             targets: "K2P-USB-512-5.0 K2P-USB-512"
           - build_variant: "E"
-            targets: "JDC-1-5.0 JDC-1"
+            targets: "R2100 R6220"
+          - build_variant: "F"
+            targets: "ZTE_E8820S"  
     steps:
 
       - name: Checkout
