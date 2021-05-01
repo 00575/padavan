@@ -63,6 +63,7 @@ jobs:
       - name: Create archive
         if: ${{ github.event_name != 'release' && success() }}
         run: |
+          cd /opt/rt-n56u
           ls -lh ${images_dir}
           GIT_VERSION=`git rev-parse --short=7 HEAD 2>/dev/null` && [ -n "$GIT_VERSION" ] && \
           image_name=images_${build_variant}_${GIT_VERSION} || image_name=images_${build_variant}
@@ -74,13 +75,13 @@ jobs:
         uses: actions/upload-artifact@v2.2.1
         with:
           name: ${{ env.image_name }}
-          path: ${{ env.images_dir }}/*.7z
+          path: /opt/rt-n56u/${{ env.images_dir }}/*.7z
           
       - name: Upload release asset
         uses: svenstaro/upload-release-action@v2
         with:
           repo_token: ${{ secrets.workflow_token }}
-          file: ${{ env.images_dir }}/*.trx
+          file: /opt/rt-n56u/${{ env.images_dir }}/*.trx
           tag: ${{env.strDate}}
           file_glob: true
           overwrite: true
