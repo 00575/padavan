@@ -19,11 +19,11 @@ jobs:
       matrix:
         include:
           - build_variant: "A"
-            targets: "MI-3C MI-R3P"
+            targets: "MI-R3P"
           - build_variant: "B"
-            targets: "MI-R3P-breed MI-R4A"
+            targets: "MI-R4A"
           - build_variant: "C"
-            targets: "NETGEAR-BZV NETGEAR-CHJ"
+            targets: "NETGEAR-CHJ"
           - build_variant: "D"
             targets: "K2P-USB-512-5.0 K2P-USB-512"
           - build_variant: "E"
