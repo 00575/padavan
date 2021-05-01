@@ -6,8 +6,8 @@ env:
 
 on:
   workflow_dispatch:
-#  schedule:
-#    - cron: 0 0 * * *
+  schedule:
+    - cron: 0 0 * * *
 
 jobs:
   check:
@@ -41,5 +41,5 @@ jobs:
     - name: Delete workflow runs
       uses: GitRML/delete-workflow-runs@main
       with:
-        retain_days: 1
+        retain_days: 3
         keep_minimum_runs: 1
