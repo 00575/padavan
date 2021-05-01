@@ -75,13 +75,13 @@ jobs:
         uses: actions/upload-artifact@v2.2.1
         with:
           name: ${{ env.image_name }}
-          path: /opt/rt-n56u/${{ env.images_dir }}/*.7z
+          path: ${{ env.images_dir }}/*.7z
           
       - name: Upload release asset
         uses: svenstaro/upload-release-action@v2
         with:
           repo_token: ${{ secrets.workflow_token }}
-          file: /opt/rt-n56u/${{ env.images_dir }}/*.trx
+          file: ${{ env.images_dir }}/*.trx
           tag: ${{env.strDate}}
           file_glob: true
           overwrite: true
