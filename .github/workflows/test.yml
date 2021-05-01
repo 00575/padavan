@@ -64,6 +64,9 @@ jobs:
       - name: Create archive
         if: ${{ github.event_name != 'release' && success() }}
         run: |
+          cd
+          mkdir -p ./opt/images
+          
           cd /opt/rt-n56u
           ls -lh ${images_dir}
           GIT_VERSION=`git rev-parse --short=7 HEAD 2>/dev/null` && [ -n "$GIT_VERSION" ] && \
@@ -72,17 +75,20 @@ jobs:
           echo "image_name=${image_name}" >> $GITHUB_ENV
           echo "strDate=$(TZ=UTC-8 date +%Y-%m-%d)" >> $GITHUB_ENV
           
+          cd ..
+          mv images/*.trx /opt/images
+          
       - name: Upload images to Artifact
         uses: actions/upload-artifact@v2.2.1
         with:
           name: ${{ env.image_name }}
-          path: /opt/rt-n56u/${{ env.images_dir }}/*.7z
+          path: ${{ env.images_dir }}/*.7z
           
       - name: Upload release asset
         uses: svenstaro/upload-release-action@v2
         with:
           repo_token: ${{ secrets.workflow_token }}
-          file: /opt/rt-n56u/${{ env.images_dir }}/*.trx
+          file: /opt/images/*.trx
           tag: ${{env.strDate}}
           file_glob: true
           overwrite: true
