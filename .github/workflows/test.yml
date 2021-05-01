@@ -22,14 +22,14 @@ jobs:
             targets: "MI-R3P"
           - build_variant: "B"
             targets: "MI-R4A"
-          #- build_variant: "C"
-            #targets: "NETGEAR-CHJ"
+          - build_variant: "C"
+            targets: "NETGEAR-CHJ"
           - build_variant: "D"
             targets: "K2P-USB-512-5.0 K2P-USB-512"
           - build_variant: "E"
             targets: "R2100 R6220"
-          #- build_variant: "F"
-            #targets: "ZTE_E8820S"  
+          - build_variant: "F"
+            targets: "ZTE_E8820S"  
     steps:
 
       - name: Checkout
@@ -46,7 +46,8 @@ jobs:
         
       - name: Run shellcheck
         run: |
-          git clone --depth=1 https://github.com/chongshengB/rt-n56u.git /opt/rt-n56u
+          git clone --depth=1 https://github.com/hanwckf/rt-n56u.git /opt/rt-n56u
+          #git clone --depth=1 https://github.com/chongshengB/rt-n56u.git /opt/rt-n56u
           cp -r ./configs/boards/. /opt/rt-n56u/trunk/configs/boards/
           cp -r ./configs/templates/. /opt/rt-n56u/trunk/configs/templates/
           . $GITHUB_WORKSPACE/patches.sh
