@@ -19,7 +19,7 @@ jobs:
       matrix:
         include:
           - build_variant: "B1"
-            targets: "GHL JCG-AC836M JCG-AC856M-5.0 JCG-AC856M"
+            targets: "GHL JCG-AC836M JCG-AC856M-5.0"
           - build_variant: "B2"
             targets: "JDC-1-5.0 JDC-1 K2P-USB-512 K2P-USB-512-5.0"
           - build_variant: "B3"
