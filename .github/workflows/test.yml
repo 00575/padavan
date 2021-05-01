@@ -51,7 +51,7 @@ jobs:
         run: |
           cd /opt/rt-n56u/toolchain-mipsel
           sh dl_toolchain.sh
-          mkdir -p /opt/images/
+          #mkdir -p /opt/images/
         
       - name: Start build
         run: |
@@ -60,7 +60,6 @@ jobs:
           for m in $targets; do fakeroot ./build_firmware_ci $m; \
           if [ $? = 0 ]; then cp -f images/*.trx ${images_dir}/$m.trx; else exit 1; fi; \
             ./clear_tree_simple >/dev/null 2>&1; done
-          mv images/*.trx /opt/images
             
       - name: Create archive
         if: ${{ github.event_name != 'release' && success() }}
