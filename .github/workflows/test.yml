@@ -43,6 +43,7 @@ jobs:
       - name: Clone source code
         run: |
           git clone --depth=1 https://github.com/chongshengB/rt-n56u.git /opt/rt-n56u
+          . $GITHUB_WORKSPACE/patches.sh
           cd /opt/rt-n56u
           sh ./trunk/tools/shellcheck.sh
         
