@@ -40,7 +40,7 @@ jobs:
           cpio git python-docutils gettext automake autopoint texinfo build-essential help2man \
           pkg-config zlib1g-dev libgmp3-dev libmpc-dev libmpfr-dev libncurses5-dev libltdl-dev wget
         
-      - name: Clone source code
+      - name: Run shellcheck
         run: |
           git clone --depth=1 https://github.com/chongshengB/rt-n56u.git /opt/rt-n56u
           . $GITHUB_WORKSPACE/patches.sh
@@ -51,7 +51,7 @@ jobs:
         run: |
           cd /opt/rt-n56u/toolchain-mipsel
           sh dl_toolchain.sh
-          #mkdir -p /opt/images/
+          mkdir -p /opt/images/
         
       - name: Start build
         run: |
