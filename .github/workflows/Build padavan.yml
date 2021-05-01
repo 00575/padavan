@@ -1,4 +1,4 @@
-name: Build padavan
+name: Build
 
 on: 
   repository_dispatch:
