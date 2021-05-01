@@ -18,18 +18,19 @@ jobs:
     strategy:
       matrix:
         include:
-          - build_variant: "A"
-            targets: "GHL JCG-AC836M"
-          - build_variant: "B"
-            targets: "JDC-1-5.0 JDC-1"
-          - build_variant: "C"
-            targets: "MSG1500-7615 MZ-R18"
-          - build_variant: "D"
-            targets: "JCG-AC856M-5.0 K2P-USB-512"
-          - build_variant: "E"
-            targets: "NEWIFI-D1 PSG712"
-          - build_variant: "F"
-            targets: "RE6500 YK-L1"  
+          - build_variant: "T1"
+            targets: "PSG1208 PSG1218 NEWIFI-MINI MI-MINI MI-3 OYE-001 5K-W20 DIR-878 DIR-882 E8820V2 JCG-Y2 K2P"
+          - build_variant: "T2"
+            targets: "HC5861B MI-NANO MZ-R13 MZ-R13P 360P2 HC5761A HC5661A K2P_nano MR2600 MR2600-5.0 JCG-836PRO"
+          - build_variant: "T3"
+            targets: "K2P_nano-5.0 K2P-5.0 DIR-878-5.0 RM2100 PSG1218_nano RT-AC1200GU WDR7300 JCG-AC860M K2P-USB-5.0 K2P-USB"
+          - build_variant: "T4"
+            targets: "XY-C1 JCG-836PRO-5.0 JCG-AC860M-5.0 JCG-Y2-5.0 DIR-882-5.0 A3004NS MSG1500 WR1200JS MI-R3G NEWIFI3 B70"
+          - build_variant: "T5"
+            targets: "MI-3C MI-R3P MI-R3P-breed MI-R4A NETGEAR-BZV NETGEAR-CHJ R2100 R6220 ZTE_E8820S"
+          - build_variant: "T6"
+            targets: "GHL JCG-AC836M JCG-AC856M-5.0 JDC-1-5.0 JDC-1 K2P-USB-512 MSG1500-7615 MZ-R18 NEWIFI-D1 PSG712 RE6500 YK-L1"
+            
     steps:
 
       - name: Checkout
@@ -46,8 +47,8 @@ jobs:
         
       - name: Run shellcheck
         run: |
-          git clone --depth=1 https://github.com/hanwckf/rt-n56u.git /opt/rt-n56u
           #git clone --depth=1 https://github.com/chongshengB/rt-n56u.git /opt/rt-n56u
+          git clone --depth=1 https://github.com/hanwckf/rt-n56u.git /opt/rt-n56u
           cp -r ./configs/boards/. /opt/rt-n56u/trunk/configs/boards/
           cp -r ./configs/templates/. /opt/rt-n56u/trunk/configs/templates/
           . $GITHUB_WORKSPACE/patches.sh
