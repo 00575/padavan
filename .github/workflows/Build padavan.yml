@@ -26,8 +26,8 @@ jobs:
             targets: "K2P_nano-5.0 K2P-5.0 DIR-878-5.0 RM2100 PSG1218_nano RT-AC1200GU WDR7300 JCG-AC860M K2P-USB-5.0 K2P-USB"
           - build_variant: "D"
             targets: "XY-C1 JCG-836PRO-5.0 JCG-AC860M-5.0 JCG-Y2-5.0 DIR-882-5.0 A3004NS MSG1500 WR1200JS MI-R3G NEWIFI3 B70"
-
     steps:
+
       - name: Checkout
         uses: actions/checkout@master
       
@@ -40,9 +40,10 @@ jobs:
           cpio git python-docutils gettext automake autopoint texinfo build-essential help2man \
           pkg-config zlib1g-dev libgmp3-dev libmpc-dev libmpfr-dev libncurses5-dev libltdl-dev wget
         
-      - name: Clone source code
+      - name: Run shellcheck
         run: |
           git clone --depth=1 https://github.com/chongshengB/rt-n56u.git /opt/rt-n56u
+          . $GITHUB_WORKSPACE/patches.sh
           cd /opt/rt-n56u
           sh ./trunk/tools/shellcheck.sh
         
@@ -50,7 +51,6 @@ jobs:
         run: |
           cd /opt/rt-n56u/toolchain-mipsel
           sh dl_toolchain.sh
-          #mkdir -p /opt/images/
         
       - name: Start build
         run: |
@@ -63,26 +63,24 @@ jobs:
       - name: Create archive
         if: ${{ github.event_name != 'release' && success() }}
         run: |
-          cd /opt/rt-n56u
-          ls -lh ${images_dir}
           GIT_VERSION=`git rev-parse --short=7 HEAD 2>/dev/null` && [ -n "$GIT_VERSION" ] && \
           image_name=images_${build_variant}_${GIT_VERSION} || image_name=images_${build_variant}
-          cd ${images_dir}; md5sum *.trx |tee md5sum.txt; 7z a -mx=9 ${image_name}.7z ./*
+          cd /opt/images; md5sum *.trx |tee md5sum.txt; 7z a -mx=9 ${image_name}.7z ./*
           echo "image_name=${image_name}" >> $GITHUB_ENV
-          echo "strDate=$(TZ=UTC-8 date +%Y-%m-%d)" >> $GITHUB_ENV
           
-      - name: Upload images to Artifact
-        uses: actions/upload-artifact@v2.2.1
+      - name: Generate release tag
+        id: tag
+        run: |
+          echo "::set-output name=release_tag::padavan_$(date +%Y-%m-%d)"
+          touch release.txt
+          echo "::set-output name=status::success"
+        
+      - name: Upload firmware to release
+        uses: softprops/action-gh-release@v1
+        if: steps.tag.outputs.status == 'success' && !cancelled()
+        env:
+          GITHUB_TOKEN: ${{ secrets.workflow_token }}
         with:
-          name: ${{ env.image_name }}
-          path: ${{ env.images_dir }}/*.7z
-          
-      - name: Upload release asset
-        uses: svenstaro/upload-release-action@v2
-        with:
-          repo_token: ${{ secrets.workflow_token }}
-          file: ${{ env.images_dir }}/*.trx
-          tag: ${{env.strDate}}
-          file_glob: true
-          overwrite: true
-          release_name: padavan-${{env.strDate}}-自动发布
+          tag_name: ${{ steps.tag.outputs.release_tag }}
+          body_path: release.txt
+          files: /opt/images/*.trx
