@@ -1,4 +1,4 @@
-name: 自编译模板
+name: 自定义编译模板
 
 on: 
   #repository_dispatch:
@@ -106,7 +106,7 @@ jobs:
     - name: Generate release tag
       id: tag
       run: |
-        echo "::set-output name=release_tag::自定义编译_$(date +%Y-%m-%d)"
+        echo "::set-output name=release_tag::diy_$(date +%Y-%m-%d)"
         touch release.txt
         echo "::set-output name=status::success"
         
