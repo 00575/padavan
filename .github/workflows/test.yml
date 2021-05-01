@@ -26,13 +26,14 @@ jobs:
     - name: Clone source code
       run: |
         git clone --depth=1 https://github.com/hanwckf/rt-n56u.git /opt/rt-n56u
+        . $GITHUB_WORKSPACE/patches.sh
         cd /opt/rt-n56u/toolchain-mipsel
         sh dl_toolchain.sh
         mkdir -p /opt/images/
-        
+    
     - name: Build Firmware
       env:
-        TNAME: NEWIFI3  #把NEWIFI3修改成你自己的设备名
+        TNAME: OYE-001  #把NEWIFI3修改成你自己的设备名
       run: |
         cd /opt/rt-n56u/trunk
         if [ ! -f configs/templates/$TNAME.config ] ; then
