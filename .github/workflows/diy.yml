@@ -1,4 +1,4 @@
-name: 自定义编译模板
+name: diy
 
 on: 
   #repository_dispatch:
@@ -26,6 +26,7 @@ jobs:
     - name: Clone source code
       run: |
         git clone --depth=1 https://github.com/hanwckf/rt-n56u.git /opt/rt-n56u
+        #git clone --depth=1 https://github.com/chongshengB/rt-n56u.git /opt/rt-n56u
         . $GITHUB_WORKSPACE/patches.sh
         cd /opt/rt-n56u/toolchain-mipsel
         sh dl_toolchain.sh
@@ -33,7 +34,7 @@ jobs:
     
     - name: Build Firmware
       env:
-        TNAME: OYE-001  #此处修改成你自己的设备名
+        TNAME: OYE-001  #此处修改成你自己的设备
       run: |
         cd /opt/rt-n56u/trunk
         if [ ! -f configs/templates/$TNAME.config ] ; then
