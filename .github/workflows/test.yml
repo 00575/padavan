@@ -64,7 +64,6 @@ jobs:
       - name: Create archive
         if: ${{ github.event_name != 'release' && success() }}
         run: |
-          cd /opt/rt-n56u
           GIT_VERSION=`git rev-parse --short=7 HEAD 2>/dev/null` && [ -n "$GIT_VERSION" ] && \
           image_name=images_${build_variant}_${GIT_VERSION} || image_name=images_${build_variant}
           cd /opt/images; md5sum *.trx |tee md5sum.txt; 7z a -mx=9 ${image_name}.7z ./*
