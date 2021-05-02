@@ -36,7 +36,7 @@ jobs:
     
     - name: Build Firmware
       env:
-        TNAME: OYE-001  #此处修改成你自己的设备
+        TNAME: GHL  #此处修改成你自己的设备
       run: |
         cd /opt/rt-n56u/trunk
         if [ ! -f configs/templates/$TNAME.config ] ; then
