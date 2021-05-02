@@ -27,6 +27,8 @@ jobs:
       run: |
         git clone --depth=1 https://github.com/hanwckf/rt-n56u.git /opt/rt-n56u
         #git clone --depth=1 https://github.com/chongshengB/rt-n56u.git /opt/rt-n56u
+        cp -r ./configs/boards/. /opt/rt-n56u/trunk/configs/boards/
+        cp -r ./configs/templates/. /opt/rt-n56u/trunk/configs/templates/
         . $GITHUB_WORKSPACE/patches.sh
         cd /opt/rt-n56u/toolchain-mipsel
         sh dl_toolchain.sh
