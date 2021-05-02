@@ -49,7 +49,7 @@ jobs:
         run: |
           #git clone --depth=1 https://github.com/chongshengB/rt-n56u.git /opt/rt-n56u
           git clone --depth=1 https://github.com/hanwckf/rt-n56u.git /opt/rt-n56u
-          cp -r ./trunk/. /opt/rt-n56u/trunk/
+          #cp -r ./trunk/. /opt/rt-n56u/trunk/
           . $GITHUB_WORKSPACE/patches.sh
           cd /opt/rt-n56u
           sh ./trunk/tools/shellcheck.sh
