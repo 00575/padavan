@@ -23,7 +23,7 @@ jobs:
           - build_variant: "A2"
             targets: "HC5861B MI-NANO MZ-R13 MZ-R13P 360P2 HC5761A HC5661A K2P_nano MR2600 MR2600-5.0 JCG-836PRO"
           - build_variant: "A3"
-            targets: "K2P_nano-5.0 K2P-5.0 DIR-878-5.0 RM2100 PSG1218_nano RT-AC1200GU WDR7300 JCG-AC860M K2P-USB-5.0 K2P-USB"
+            targets: "K2P_nano-5.0 K2P-5.0 DIR-878-5.0 RM2100 PSG1218_nano RT-AC1200GU WDR7300 JCG-AC860M K2P-USB-5.0 K2P-USB CR660x"
           - build_variant: "A4"
             targets: "XY-C1 JCG-836PRO-5.0 JCG-AC860M-5.0 JCG-Y2-5.0 DIR-882-5.0 A3004NS MSG1500 WR1200JS MI-R3G NEWIFI3 B70"
           - build_variant: "A5"
