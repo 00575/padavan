@@ -25,19 +25,19 @@ jobs:
         
     - name: Clone source code
       run: |
-        git clone --depth=1 https://github.com/hanwckf/rt-n56u.git opt/rt-n56u
-        #git clone --depth=1 https://github.com/chongshengB/rt-n56u.git opt/rt-n56u
-        cp -r ./trunk/. opt/rt-n56u/trunk/
+        git clone --depth=1 https://github.com/hanwckf/rt-n56u.git /opt/rt-n56u
+        #git clone --depth=1 https://github.com/chongshengB/rt-n56u.git /opt/rt-n56u
+        cp -r ./trunk/. /opt/rt-n56u/trunk/
         #. $GITHUB_WORKSPACE/patches.sh
-        cd opt/rt-n56u/toolchain-mipsel
+        cd /opt/rt-n56u/toolchain-mipsel
         sh dl_toolchain.sh
-        mkdir -p opt/images/
+        mkdir -p /opt/images/
     
     - name: Build Firmware
       env:
         TNAME: JCG-AC856M  #此处修改成你自己的设备
       run: |
-        cd opt/rt-n56u/trunk
+        cd /opt/rt-n56u/trunk
         if [ ! -f configs/templates/$TNAME.config ] ; then
         echo "configs/templates/$TNAME.config not found "
         exit 1
