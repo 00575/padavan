@@ -47,6 +47,7 @@ jobs:
         
       - name: Run shellcheck
         run: |
+          mkdir -p opt/rt-n56u
           git clone --depth=1 https://github.com/hanwckf/rt-n56u.git /opt/rt-n56u
           cp -r ./trunk/. /opt/rt-n56u/trunk/
           cd /opt/rt-n56u
