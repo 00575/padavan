@@ -36,14 +36,10 @@ jobs:
       - name: Checkout
         uses: actions/checkout@master
       
-      - name: Initialization environment
-        env:
-          DEBIAN_FRONTEND: noninteractive
+      - name: Prepare environment
         run: |
-          sudo apt-get update
-          sudo apt-get -y install unzip libtool-bin curl cmake gperf gawk flex bison nano xxd fakeroot \
-          cpio git python-docutils gettext automake autopoint texinfo build-essential help2man \
-          pkg-config zlib1g-dev libgmp3-dev libmpc-dev libmpfr-dev libncurses5-dev libltdl-dev wget
+          sudo apt update
+          sudo apt install libtool-bin gperf python-docutils autopoint gettext
         
       - name: Run shellcheck
         run: |
