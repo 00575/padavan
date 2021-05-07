@@ -23,17 +23,15 @@ jobs:
         
     - name: Clone source code
       run: |
-        git clone --depth=1 https://github.com/hanwckf/rt-n56u.git /opt/rt-n56u
-        #git clone --depth=1 https://github.com/chongshengB/rt-n56u.git /opt/rt-n56u
-        cp -r ./trunk/. /opt/rt-n56u/trunk/
-        #. $GITHUB_WORKSPACE/patches.sh
+        git clone --depth=1 https://a0575/padavan/rt-n56u.git /opt/rt-n56u
+        #cp -r ./trunk/. /opt/rt-n56u/trunk/
         cd /opt/rt-n56u/toolchain-mipsel
         sh dl_toolchain.sh
         mkdir -p /opt/images/
     
     - name: Build Firmware
       env:
-        TNAME: NEWIFI3
+        TNAME: "JCG-AC856M-5.0 JDC-1-5.0 JDC-1 K2P-USB-512 MSG1500-7615 MZ-R18 NEWIFI-D1 PSG712 RE6500 YK-L1"
       run: |
         cd /opt/rt-n56u/trunk
         if [ ! -f configs/templates/$TNAME.config ] ; then
