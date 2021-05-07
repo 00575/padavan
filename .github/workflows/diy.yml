@@ -31,7 +31,7 @@ jobs:
     
     - name: Build Firmware
       env:
-        TNAME: "JCG-AC856M-5.0 JDC-1-5.0 JDC-1 K2P-USB-512 MSG1500-7615 MZ-R18 NEWIFI-D1 PSG712 RE6500 YK-L1"
+        TNAME: JCG-AC856M-5.0
       run: |
         cd /opt/rt-n56u/trunk
         if [ ! -f configs/templates/$TNAME.config ] ; then
