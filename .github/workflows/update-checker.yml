@@ -1,7 +1,7 @@
 name: Update Checker
 
 env:
-  REPO_URL: https://github.com/hanwckf/rt-n56u
+  REPO_URL: https://a0575/padavan/rt-n56u
   REPO_BRANCH: master
 
 on:
