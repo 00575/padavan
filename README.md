@@ -1,10 +1,12 @@
-* 在线云编译自己的padavan设备固件
-* 源码更新后自动编译自定的设备固件
-### 固件说明 ###
+*在线云编译自己的padavan设备固件
+*源码更新后自动编译自定的设备固件
+
+#### 固件说明 ####
 * 默认登陆IP:192.168.123.1 
 * 默认用户名/密码:admin/admin
 * 默认wifi密码:12346789
-### 支持设备 ###
+* 
+#### 支持设备 ####
 * PSG1208 PSG1218 NEWIFI-MINI MI-MINI MI-3 OYE-001 5K-W20 DIR-878 DIR-882 E8820V2 JCG-Y2 K2P
 * HC5861B MI-NANO MZ-R13 MZ-R13P 360P2 HC5761A HC5661A K2P_nano MR2600 MR2600-5.0 JCG-836PRO
 * K2P_nano-5.0 K2P-5.0 DIR-878-5.0 RM2100 PSG1218_nano RT-AC1200GU WDR7300 JCG-AC860M K2P-USB-5.0 K2P-USB CR660x
