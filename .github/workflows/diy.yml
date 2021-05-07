@@ -31,7 +31,7 @@ jobs:
     
     - name: Build Firmware
       env:
-        TNAME: JDC-1
+        TNAME: K2P-USB-512
       run: |
         cd /opt/rt-n56u/trunk
         if [ ! -f configs/templates/$TNAME.config ] ; then
