@@ -23,7 +23,7 @@ jobs:
         
     - name: Clone source code
       run: |
-        git clone --depth=1 https://a0575/padavan/rt-n56u.git /opt/rt-n56u
+        git clone --depth=1 https://github.com/a0575/padavan.git /opt/rt-n56u
         #cp -r ./trunk/. /opt/rt-n56u/trunk/
         cd /opt/rt-n56u/toolchain-mipsel
         sh dl_toolchain.sh
