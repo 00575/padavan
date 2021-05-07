@@ -48,7 +48,7 @@ jobs:
       - name: Run shellcheck
         run: |
           git clone --depth=1 https://github.com/a0575/padavan.git /opt/rt-n56u
-          cp -r ./trunk/. /opt/rt-n56u/trunk/
+          #cp -r ./trunk/. /opt/rt-n56u/trunk/
           cd /opt/rt-n56u
           sh ./trunk/tools/shellcheck.sh
         
