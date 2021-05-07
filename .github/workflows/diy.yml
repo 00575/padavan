@@ -31,7 +31,7 @@ jobs:
     
     - name: Build Firmware
       env:
-        TNAME: JDC-1-5.0
+        TNAME: JDC-1
       run: |
         cd /opt/rt-n56u/trunk
         if [ ! -f configs/templates/$TNAME.config ] ; then
