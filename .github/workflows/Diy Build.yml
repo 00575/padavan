@@ -1,4 +1,4 @@
-name: diy
+name: Build Padavan
 
 on: 
   #repository_dispatch:
@@ -31,7 +31,7 @@ jobs:
     
     - name: Build Firmware
       env:
-        TNAME: MSG1500-7615
+        TNAME: NEWIFI3 #把NEWIFI3修改成自己的设备
       run: |
         cd /opt/rt-n56u/trunk
         if [ ! -f configs/templates/$TNAME.config ] ; then
