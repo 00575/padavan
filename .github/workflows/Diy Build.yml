@@ -107,7 +107,7 @@ jobs:
     - name: Generate release tag
       id: tag
       run: |
-        echo "::set-output name=release_tag::自动编译_$(date +%Y-%m-%d)"
+        echo "::set-output name=release_tag::$TNAME_$(date +%Y-%m-%d)"
         touch release.txt
         echo "::set-output name=status::success"
         
