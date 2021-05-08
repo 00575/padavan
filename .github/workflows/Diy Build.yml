@@ -30,9 +30,13 @@ jobs:
     
     - name: Build Firmware
       env:
-        TNAME: NEWIFI3 #把NEWIFI3修改成自己的设备
+        TNAME: NEWIFI3 #把NEWIFI3改成自己需要编译的设备
       run: |
         cd /opt/rt-n56u/trunk
+        ################################################################################################
+        #如果要修改默认IP：请把下面的 192.168.x.x 修改成你要设定的ip 然后删除前面的注释“#”
+        ################################################################################################
+        #sed -i 's/192.168.123.1/192.168.x.x/g' user/shared/defaults.h
         if [ ! -f configs/templates/$TNAME.config ] ; then
         echo "configs/templates/$TNAME.config not found "
         exit 1
