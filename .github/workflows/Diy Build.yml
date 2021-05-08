@@ -30,7 +30,7 @@ jobs:
     
     - name: Build Firmware
       env:
-        TNAME: NEWIFI3 #把NEWIFI3修改成自己的设备
+        TNAME: RE6500 #把NEWIFI3修改成自己的设备
       run: |
         cd /opt/rt-n56u/trunk
         if [ ! -f configs/templates/$TNAME.config ] ; then
