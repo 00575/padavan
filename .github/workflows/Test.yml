@@ -123,7 +123,7 @@ jobs:
     - name: Generate release tag
       id: tag
       run: |
-        echo "::set-output name=release_tag::Test-$(TNAME)_$(date +%Y-%m-%d)"
+        echo "::set-output name=release_tag::Test-$(date +%Y-%m-%d)"
         touch release.txt
         echo "::set-output name=status::success"
         
