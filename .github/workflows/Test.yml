@@ -44,8 +44,8 @@ jobs:
         cd /opt/rt-n56u/trunk
         for m in $TNAME;
         do
-        if [ ! -f configs/templates/$TNAME.config ] ; then
-        echo "configs/templates/$TNAME.config not found "
+        if [ ! -f configs/templates/$m.config ] ; then
+        echo "configs/templates/$m.config not found "
         exit 1
         fi
  
@@ -53,9 +53,9 @@ jobs:
         #如果要修改默认IP：请把下面的 192.168.x.x 修改成你要设定的ip 然后删除前面的注释“#”
         #sed -i 's/192.168.123.1/192.168.x.x/g' user/shared/defaults.h
         #####################################################################################
-        cp -f configs/templates/$TNAME.config .config
+        cp -f configs/templates/$m.config .config
         sed -i 's/CONFIG_FIRMWARE_INCLUDE_OPENSSL_EXE=n/CONFIG_FIRMWARE_INCLUDE_OPENSSL_EXE=y/g' .config
-        ################################################################################################
+        #####################################################################################
         #因不同型号配置功能不一样，所以先把配置项删除，如果你自己要添加其他的，也要写上删除这一条，切记！！！
         #####################################################################################
         sed -i '/CONFIG_FIRMWARE_INCLUDE_MENTOHUST/d' .config #删除配置项MENTOHUST
