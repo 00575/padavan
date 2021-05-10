@@ -33,10 +33,11 @@ jobs:
       env:
         TNAME: "NEWIFI3 OYE-001" #把NEWIFI3改成自己需要编译的设备
       run: |
+        cd /opt/rt-n56u
         cwd=`pwd`
         CONFIG_TOOLCHAIN_DIR=${cwd//\//\\\/}\\/toolchain-mipsel
         
-        cd /opt/rt-n56u/trunk
+        cd trunk
         for m in $TNAME;
  
         do
