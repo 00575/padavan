@@ -107,10 +107,10 @@ jobs:
         #echo "自定义项=y" >> .config
         #########################################################################################
         sed -i "s/^CONFIG_TOOLCHAIN_DIR=.*$/CONFIG_TOOLCHAIN_DIR=${CONFIG_TOOLCHAIN_DIR}/g" .config
-        ./clear_tree_simple
-        fakeroot ./build_firmware_modify $TNAME 0
-        mv -f images/*.trx /opt/images
-    
+        sudo ./clear_tree
+        sudo ./build_firmware_modify $TNAME 0
+        sudo mv -f images/*.trx /opt/images/
+
     - name: Create archive
       if: ${{ github.event_name != 'release' && success() }}
       run: |
