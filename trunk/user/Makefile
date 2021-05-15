@@ -1,4 +1,3 @@
-
 .EXPORT_ALL_VARIABLES:
 .PHONY: all romfs clean
 
