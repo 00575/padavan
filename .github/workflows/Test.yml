@@ -24,7 +24,7 @@ jobs:
     - name: Clone source code
       run: |
         git clone --depth=1 https://github.com/a0575/padavan.git /opt/rt-n56u
-        cp -r trunk/. /opt/rt-n56u/trunk
+        #cp -r trunk/. /opt/rt-n56u/trunk
         
     - name: Run shellcheck
       run: |
@@ -34,9 +34,9 @@ jobs:
     - name: Prepare toolchain
       run: |    
         cd /opt/rt-n56u/toolchain-mipsel
-        ./clean_toolchain
-        ./build_toolchain
-        #sh dl_toolchain.sh
+        #./clean_toolchain
+        #./build_toolchain
+        sh dl_toolchain.sh
         mkdir -p /opt/images/
     
     - name: Build Firmware
