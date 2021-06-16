@@ -30,7 +30,7 @@ jobs:
     
     - name: Build Firmware
       env:
-        TNAME: NEWIFI3 #把NEWIFI3改成自己需要编译的设备
+        TNAME: CR660x #把NEWIFI3改成自己需要编译的设备
       run: |
         cd /opt/rt-n56u/trunk
         ################################################################################################
