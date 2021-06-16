@@ -44,7 +44,7 @@ jobs:
         TNAME: CR660x
       run: |
         cd /opt/rt-n56u/trunk
-        sed -i 's/192.168.123.1/192.168.100.1/g' user/shared/defaults.h
+        sed -i 's/192.168.123.1/192.168.x.x/g' user/shared/defaults.h
         if [ ! -f configs/templates/$TNAME.config ] ; then
         echo "configs/templates/$TNAME.config not found "
         exit 1
