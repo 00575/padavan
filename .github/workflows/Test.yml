@@ -41,7 +41,7 @@ jobs:
     
     - name: Build Firmware
       env:
-        TNAME: K2P-USB-512
+        TNAME: MZ-R18
       run: |
         cd /opt/rt-n56u/trunk
         sed -i 's/192.168.123.1/192.168.x.x/g' user/shared/defaults.h
