@@ -3,6 +3,7 @@ name: Update Checker
 env:
   REPO_URL: https://github.com/a0575/padavan
   REPO_BRANCH: master
+  TZ: Asia/Shanghai
 
 on:
   workflow_dispatch:
@@ -14,6 +15,12 @@ jobs:
     runs-on: ubuntu-20.04
 
     steps:
+
+    - name: 设置日期
+      run: |
+        sudo timedatectl set-timezone "$TZ"
+        #echo "date=$(date +'%m/%d_%Y_%H/%M')" >> $GITHUB_ENV
+        echo "date=$(date +'%Y.%m.%d')" >> $GITHUB_ENV
 
     - name: Get Commit Hash
       id: getHash
