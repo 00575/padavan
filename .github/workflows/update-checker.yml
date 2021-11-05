@@ -7,41 +7,46 @@ env:
 on:
   workflow_dispatch:
   schedule:
-    - cron: 0 2 * * *
+    - cron: 00 20 * * *
 
 jobs:
   check:
     runs-on: ubuntu-20.04
 
-    steps:
+        steps:
 
-    - name: Get Commit Hash
+    - name: 获取提交哈希值
       id: getHash
       run: |
         git clone --depth 1 $REPO_URL -b $REPO_BRANCH .
         echo "::set-output name=commitHash::$(git rev-parse HEAD)"
 
-    - name: Compare Commit Hash
+    - name: 比较提交哈希值
       id: cacheHash
       uses: actions/cache@v2
       with:
         path: .commitHash
         key: HEAD-${{ steps.getHash.outputs.commitHash }}
 
-    - name: Save New Commit Hash
+    - name: 保存新的哈希值
       if: steps.cacheHash.outputs.cache-hit != 'true'
       run: |
         echo ${{ steps.getHash.outputs.commitHash }} | tee .commitHash
+        
+    - name: 设置当前的日期
+      id: date
+      run: |
+        echo "date=$(date +%Y.'%m.%d')" >> $GITHUB_ENV        
 
-    - name: Trigger build
+    - name: 触发编译
       if: steps.cacheHash.outputs.cache-hit != 'true'
       uses: peter-evans/repository-dispatch@v1
       with:
-        token: ${{ secrets.workflow_token }}
-        event-type: 源码更新
-
-    - name: Delete workflow runs
+        token: ${{ secrets.REPO_TOKEN }}
+        event-type: ${{ env.date }} 
+ 
+    - name: 删除工作流
       uses: GitRML/delete-workflow-runs@main
       with:
         retain_days: 1
-        keep_minimum_runs: 1
+        keep_minimum_runs: 0
