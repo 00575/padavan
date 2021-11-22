@@ -42,7 +42,7 @@ jobs:
       if: steps.cacheHash.outputs.cache-hit != 'true'
       uses: peter-evans/repository-dispatch@v1
       with:
-        token: ${{ secrets.REPO_TOKEN }}
+        token: ${{ secrets.workflow_token }}
         event-type: ${{ env.date }} 
  
     - name: 删除工作流
