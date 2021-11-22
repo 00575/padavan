@@ -13,7 +13,7 @@ jobs:
   check:
     runs-on: ubuntu-20.04
 
-        steps:
+    steps:
 
     - name: 获取提交哈希值
       id: getHash
