@@ -40,7 +40,7 @@ jobs:
     
     - name: Build Firmware
       env:
-        TNAME: JCG-AC856M-5.0
+        TNAME: OYE-001
       run: |
         cd /opt/rt-n56u/trunk
         sed -i 's/192.168.123.1/192.168.x.x/g' user/shared/defaults.h
